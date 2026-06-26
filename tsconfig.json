@@ -16,11 +16,7 @@
     "jsx": "react-jsx",
     "incremental": true,
     "noUncheckedIndexedAccess": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "types": ["jest"]
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
