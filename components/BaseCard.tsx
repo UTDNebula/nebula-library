@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge';
+
 type CardVariant = 'flat' | 'interactive' | 'transparent';
 
 type BaseCardProps = {
@@ -24,12 +26,11 @@ export const BaseCard = ({
   style,
   id,
 }: BaseCardProps) => {
-  const hasBgClass = className.includes('bg-');
   return (
     <div
       {...(id ? { id } : {})}
       style={style}
-      className={`${baseClasses} ${hasBgClass || variant === 'transparent' ? '' : 'bg-white dark:bg-neutral-800'} ${variantClasses[variant]} ${className}`}
+      className={twMerge(baseClasses, variant === 'transparent' ? '' : 'bg-white dark:bg-neutral-800', variantClasses[variant], className)}
     >
       {children}
     </div>
