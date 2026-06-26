@@ -3,11 +3,22 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from 'jest';
-
-const config: Config = {
+const config = {
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  transform: {
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        tsconfig: {
+          jsx: 'react-jsx',
+          rootDir: '.',
+        },
+      },
+    ],
+  },
 };
 
 export default config;
