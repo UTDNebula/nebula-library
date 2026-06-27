@@ -30,7 +30,12 @@ export const BaseCard = ({
     <div
       {...(id ? { id } : {})}
       style={style}
-      className={twMerge(baseClasses, variant === 'transparent' ? '' : 'bg-white dark:bg-neutral-800', variantClasses[variant], className)}
+      className={twMerge(
+        baseClasses,
+        variant === 'transparent' ? '' : 'bg-white dark:bg-neutral-800',
+        variantClasses[variant],
+        className,
+      )}
     >
       {children}
     </div>
