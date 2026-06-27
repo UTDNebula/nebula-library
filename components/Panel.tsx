@@ -3,6 +3,7 @@
 import { ChevronRight } from '@mui/icons-material';
 import { Collapse, IconButton, Skeleton, Typography } from '@mui/material';
 import React, { useState, type ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 import { BaseCard } from './BaseCard';
 
 type CollapseOptions = {
@@ -151,14 +152,26 @@ const Panel = ({
 
   return (
     <BaseCard
-      className={`flex flex-col ${smallPadding ? 'p-5' : 'max-sm:px-2 max-sm:py-4 sm:px-14 sm:py-10'} outline-royal dark:outline-cornflower-300 max-w-6xl min-w-0 target:outline-2 ${transparent === 'falseOnHover' ? 'transition-colors hover:bg-neutral-200 hover:dark:bg-neutral-950' : ''} ${className ?? ''}`}
+      className={twMerge(
+        'flex flex-col',
+        smallPadding ? 'p-5' : 'max-sm:px-2 max-sm:py-4 sm:px-14 sm:py-10',
+        'outline-royal dark:outline-cornflower-300 max-w-6xl min-w-0 target:outline-2',
+        transparent === 'falseOnHover'
+          ? 'transition-colors hover:bg-neutral-200 hover:dark:bg-neutral-950'
+          : '',
+        className ?? '',
+      )}
       {...(id ? { id } : {})}
       style={style}
       variant={transparent ? 'transparent' : 'flat'}
     >
       {hasHeading && (
         <div
-          className={`flex justify-between ${isHeaderInteractive ? 'cursor-pointer select-none' : ''} ${slotClassNames?.heading}`}
+          className={twMerge(
+            'flex justify-between',
+            isHeaderInteractive ? 'cursor-pointer select-none' : '',
+            slotClassNames?.heading ?? '',
+          )}
           {...(isHeaderInteractive
             ? {
                 role: 'button',
@@ -201,7 +214,11 @@ const Panel = ({
         <div className={`flex flex-col gap-2 ${hasHeading ? 'pt-2' : ''}`}>
           {description && (
             <div
-              className={`mb-4 text-sm text-slate-600 dark:text-slate-400 ${smallPadding ? '' : 'ml-2'} ${slotClassNames?.description}`}
+              className={twMerge(
+                'mb-4 text-sm text-slate-600 dark:text-slate-400',
+                smallPadding ? '' : 'ml-2',
+                slotClassNames?.description ?? '',
+              )}
             >
               {description}
             </div>
