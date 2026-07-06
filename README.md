@@ -5,6 +5,11 @@ A library of components and more for Nebula Labs projects.
 ## Used In
 
 - [Clubs](https://github.com/UTDNebula/utd-clubs/)?
+- [Notebook](https://github.com/UTDNebula/utd-notebook/)?
+
+## Standards
+
+All components must use [`tailwind-merge`](https://github.com/dcastil/tailwind-merge) for any passed in Tailwind class names so that default styles can be overridden.
 
 ## New Project
 
