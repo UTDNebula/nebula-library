@@ -17,7 +17,8 @@ Steps to add the library to a new project.
 
 1. Run `git submodule add https://github.com/UTDNebula/nebula-library.git src/nebula-library`.
 2. Ignore `src/nebula-library` in your configs for ESLint, Prettier, Jest, and TypeScript.
-3. Add `"nebula-library": "file:src/nebula-library"` under `dependencies` in your `package.json` and run `npm install`.
-4. Add `submodules: recursive` in the "with" section of `actions/checkout` for any GitHub actions that need it.
-5. Update your documentation to use `git clone --recurse-submodules` and explain submodule development.
-6. Start importing!
+3. Update your TypeScript config to resolve `@nebula-library/` imports then your ESLint config to require them and your Prettier config to sort them separately.
+4. Add `"nebula-library": "file:src/nebula-library"` under `dependencies` in your `package.json` and run `npm install`.
+5. Add `submodules: recursive` in the "with" section of `actions/checkout` for any GitHub actions that need it.
+6. Update your documentation to use `git clone --recurse-submodules` and explain submodule development.
+7. Start importing!
